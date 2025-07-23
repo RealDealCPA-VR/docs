@@ -21,6 +21,14 @@
               "development"
             ]
           },
+           {
+            "group": "Policies",
+            "pages": [
+              "Termsofservice/Termsofservice",
+              "Privacy/privacypolicy",
+              
+            ]
+          },
           {
             "group": "Pricing",
             "pages": [
