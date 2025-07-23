@@ -1,107 +1,174 @@
 ---
-title: 'Development'
-description: 'Preview changes locally to update your docs'
+title: 'Platform Development & Updates'
+description: 'Understanding Real Deal CPA platform changes and development process'
 ---
 
-<Info>
-  **Prerequisite**: Please install Node.js (version 19 or higher) before proceeding. <br />
-  Please upgrade to ```docs.json``` before proceeding and delete the legacy ```mint.json``` file.
-</Info>
+<Warning>
+  **Important Notice**: All applications and features provided by Real Deal CPA LLC are subject to change without prior notice. We continuously improve our platform to deliver the best possible experience.
+</Warning>
 
-Follow these steps to install and run Mintlify on your operating system:
+## Platform Evolution
 
-**Step 1**: Install Mintlify:
+Real Deal CPA is committed to delivering cutting-edge AI-powered tax and accounting solutions. As part of our commitment to excellence, our platform undergoes continuous development and improvement.
 
-<CodeGroup>
+### What This Means for Users
 
-  ```bash npm
-  npm i -g mintlify
-  ```
+<CardGroup cols={2}>
+  <Card
+    title="Feature Updates"
+    icon="code-branch"
+  >
+    New features and improvements are regularly deployed to enhance your experience
+  </Card>
+  <Card
+    title="Interface Changes"
+    icon="paintbrush"
+  >
+    User interface elements may be updated to improve usability and functionality
+  </Card>
+  <Card
+    title="API Modifications"
+    icon="gear"
+  >
+    API endpoints and responses may evolve to support new capabilities
+  </Card>
+  <Card
+    title="Documentation Updates"
+    icon="book"
+  >
+    This documentation is updated regularly to reflect platform changes
+  </Card>
+</CardGroup>
 
-```bash yarn
-yarn global add mintlify
-```
+## Change Management
 
-</CodeGroup>
+### How We Handle Updates
 
-**Step 2**: Navigate to the docs directory (where the `docs.json` file is located) and execute the following command:
+<Steps>
+  <Step title="Development & Testing">
+    All changes undergo rigorous testing in our development environment before deployment
+  </Step>
+  <Step title="Staged Rollout">
+    Major updates are rolled out gradually to ensure system stability
+  </Step>
+  <Step title="Documentation Updates">
+    Our documentation is updated to reflect any changes that affect user experience
+  </Step>
+  <Step title="User Communication">
+    Significant changes are communicated through our platform and support channels
+  </Step>
+</Steps>
 
-```bash
-mintlify dev
-```
-
-A local preview of your documentation will be available at `http://localhost:3000`.
-
-### Custom Ports
-
-By default, Mintlify uses port 3000. You can customize the port Mintlify runs on by using the `--port` flag. To run Mintlify on port 3333, for instance, use this command:
-
-```bash
-mintlify dev --port 3333
-```
-
-If you attempt to run Mintlify on a port that's already in use, it will use the next available port:
-
-```md
-Port 3000 is already in use. Trying 3001 instead.
-```
-
-## Mintlify Versions
-
-Please note that each CLI release is associated with a specific version of Mintlify. If your local website doesn't align with the production version, please update the CLI:
-
-<CodeGroup>
-
-```bash npm
-npm i -g mintlify@latest
-```
-
-```bash yarn
-yarn global upgrade mintlify
-```
-
-</CodeGroup>
-
-## Validating Links
-
-The CLI can assist with validating reference links made in your documentation. To identify any broken links, use the following command:
-
-```bash
-mintlify broken-links
-```
-
-## Deployment
-
-<Tip>
-  Unlimited editors available under the [Pro
-  Plan](https://mintlify.com/pricing) and above.
-</Tip>
-
-If the deployment is successful, you should see the following:
-
-<Frame>
-  <img src="/images/checks-passed.png" style={{ borderRadius: '0.5rem' }} />
-</Frame>
-
-## Code Formatting
-
-We suggest using extensions on your IDE to recognize and format MDX. If you're a VSCode user, consider the [MDX VSCode extension](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx) for syntax highlighting, and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for code formatting.
-
-## Troubleshooting
+### Types of Changes
 
 <AccordionGroup>
-  <Accordion title='Error: Could not load the "sharp" module using the darwin-arm64 runtime'>
-
-    This may be due to an outdated version of node. Try the following:
-    1. Remove the currently-installed version of mintlify: `npm remove -g mintlify`
-    2. Upgrade to Node v19 or higher.
-    3. Reinstall mintlify: `npm install -g mintlify`
+  <Accordion title="Minor Updates">
+    - Bug fixes and performance improvements
+    - Small UI/UX enhancements
+    - Security patches
+    - These typically don't require user action
   </Accordion>
 
-  <Accordion title="Issue: Encountering an unknown error">
-  
-    Solution: Go to the root of your device and delete the \~/.mintlify folder. Afterwards, run `mintlify dev` again.
+  <Accordion title="Feature Additions">
+    - New AI capabilities
+    - Additional calculation tools
+    - Enhanced reporting features
+    - New integrations and API endpoints
+  </Accordion>
+
+  <Accordion title="Major Platform Changes">
+    - Significant interface redesigns
+    - New product offerings
+    - Changes to core functionality
+    - API version updates
+  </Accordion>
+
+  <Accordion title="Deprecations">
+    - Removal of outdated features
+    - API endpoint changes
+    - Legacy system updates
+    - Users will receive advance notice when possible
   </Accordion>
 </AccordionGroup>
 
-Curious about what changed in the CLI version? [Check out the CLI changelog.](https://www.npmjs.com/package/mintlify?activeTab=versions)
+## Staying Updated
+
+### Best Practices for Users
+
+<CardGroup cols={2}>
+  <Card
+    title="Regular Check-ins"
+    icon="calendar-check"
+  >
+    Regularly visit our documentation and dashboard for the latest updates
+  </Card>
+  <Card
+    title="API Versioning"
+    icon="code"
+  >
+    Use versioned API endpoints when available to maintain compatibility
+  </Card>
+  <Card
+    title="Backup Important Data"
+    icon="cloud-arrow-up"
+  >
+    Regularly export important data and configurations
+  </Card>
+  <Card
+    title="Test Integrations"
+    icon="plug"
+  >
+    Periodically test your integrations to ensure continued functionality
+  </Card>
+</CardGroup>
+
+### Communication Channels
+
+Stay informed about platform changes through:
+
+- **Dashboard Notifications**: Important updates displayed in your Real Deal CPA dashboard
+- **Email Updates**: Critical changes sent to your registered email address
+- **Documentation**: This documentation site is updated with each release
+- **Support Channel**: Contact [vr@realdealcpa.ai](mailto:vr@realdealcpa.ai) for specific questions
+
+## Developer Considerations
+
+<Info>
+If you're integrating with our API or building custom solutions, please note that endpoints and data structures may evolve. We recommend implementing robust error handling and staying updated with our API documentation.
+</Info>
+
+### API Stability
+
+- **Current API Version**: Check our [API Reference](/api-reference/introduction) for the latest version
+- **Backward Compatibility**: We strive to maintain backward compatibility when possible
+- **Deprecation Notice**: Deprecated endpoints will include advance notice in responses
+- **Version Headers**: Use API version headers to ensure consistent behavior
+
+## Support During Changes
+
+### Getting Help
+
+If you experience issues after platform updates:
+
+1. **Check Documentation**: Review updated documentation for changes
+2. **Contact Support**: Reach out to [vr@realdealcpa.ai](mailto:vr@realdealcpa.ai)
+3. **Community Resources**: Visit our community channels for peer support
+4. **Status Updates**: Check our status page for known issues
+
+<Card
+  title="Need Immediate Assistance?"
+  icon="headset"
+  href="mailto:vr@realdealcpa.ai"
+>
+  Our support team is available to help you navigate any platform changes
+</Card>
+
+## Disclaimer
+
+<Note>
+**Platform Changes**: Real Deal CPA LLC reserves the right to modify, update, or discontinue any aspect of our platform at any time. While we strive to minimize disruption, users acknowledge that all applications and services are subject to change. This includes but is not limited to features, pricing, API endpoints, user interfaces, and terms of service.
+</Note>
+
+---
+
+*Last Updated: [Current Date] - This page is updated regularly to reflect our current development practices and policies.*
