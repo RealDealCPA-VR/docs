@@ -69,6 +69,11 @@
           "anchor": "Blog",
           "href": "https://realdealcpa.substack.com/",
           "icon": "newspaper"
+        },
+        {
+          "anchor": "Website",
+          "href": "https://realdealcpa.ai",
+          "icon": "map-pin"
         }
       ]
     }
