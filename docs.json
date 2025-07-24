@@ -17,7 +17,6 @@
             "group": "Get Started",
             "pages": [
               "index",
-              "quickstart",
               "development"
             ]
           },
@@ -60,7 +59,6 @@
     ],
     "global": {
       "anchors": [
-        
         {
           "anchor": "Community",
           "href": "https://x.com/i/communities/1923778167631728890",
