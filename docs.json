@@ -39,7 +39,7 @@
           {
             "group": "About",
             "pages": [
-              "about/credentials"
+              "Credentials/credential"
             ]
           }
         ]
