@@ -1,0 +1,71 @@
+# Search Response Documentation
+
+## What is the Search Response?
+
+The search response is returned by the API when a user performs a property search. It provides a list of real estate listings that match the search criteria, including key details about each property such as title, description, price, and more.
+
+## Usefulness
+
+This response is useful for displaying search results to users in real estate applications, enabling them to browse, compare, and select properties of interest. It provides structured data that can be used for further analysis, filtering, or integration into investment tools.
+
+This document describes the structure and meaning of the search response returned by the API.
+
+## Example Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "title": "123 Maple Ave, Springfield, IL 62704 | ExampleSource",
+      "description": "This home is located at 123 Maple Ave, Springfield, IL 62704. This property is off market, which means it's not currently listed for sale or rent.",
+      "url": "https://source.example.com/listing/12345",
+      "address": null,
+      "price": 250000,
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1800,
+      "year_built": 1995,
+      "lot_size": null,
+      "property_type": "single-family",
+      "zip_code": "62704",
+      "zestimate": null,
+      "rent_zestimate": null,
+      "hoa_fee": null,
+      "source_attribution": "Source data provider",
+      "data_use": "Investment analysis only"
+    }
+    // ... more results
+  ],
+  "warning": null
+}
+```
+
+## Response Fields
+
+- **success** (`boolean`): Indicates if the search was successful.
+- **data** (`array`): List of property search results. Each object contains:
+  - **title** (`string`): Title of the listing or result.
+  - **description** (`string`): Description of the property or listing.
+  - **url** (`string`): Direct link to the listing source.
+  - **address** (`string|null`): Full address of the property, if available.
+  - **price** (`number|null`): Price of the property, if available.
+  - **beds** (`number|null`): Number of bedrooms.
+  - **baths** (`number|null`): Number of bathrooms.
+  - **sqft** (`number|null`): Square footage of the property.
+  - **year_built** (`number|null`): Year the property was built.
+  - **lot_size** (`number|null`): Lot size, if available.
+  - **property_type** (`string|null`): Type of property (e.g., "single-family").
+  - **zip_code** (`string|null`): ZIP code of the property.
+  - **zestimate** (`number|null`): Zestimate value, if available.
+  - **rent_zestimate** (`number|null`): Rent Zestimate, if available.
+  - **hoa_fee** (`number|null`): Homeowners Association fee, if available.
+  - **source_attribution** (`string`): Source of the listing data.
+  - **data_use** (`string`): Intended use of the data (e.g., "Investment analysis only").
+- **warning** (`string|null`): Any warning message related to the search, or `null` if none.
+
+## Notes
+
+- Fields may be `null` if the information is not available from the source.
+- The `data` array may contain multiple property results.
+- The `warning` field is used to communicate issues such as incomplete data or rate limits.

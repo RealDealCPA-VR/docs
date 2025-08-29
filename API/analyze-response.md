@@ -1,0 +1,179 @@
+# Analyze Response Documentation
+
+## What is the Analyze Response?
+
+The analyze response is returned by the API when a user requests a detailed investment analysis for a specific property. It aggregates property details, financial projections, comparable rentals, and investment metrics into a single, comprehensive report.
+
+## Usefulness
+
+This response is valuable for real estate investors, analysts, and application users who need to evaluate the financial viability of a property. It enables users to assess cash flow, expenses, returns, and compare similar rentals, supporting informed investment decisions and risk assessment.
+
+This document describes the structure and meaning of the response returned by the `/analyze` API endpoint.
+
+## Example Response
+
+```json
+{
+  "address": "789 Oak St, Rivertown, CA 90210",
+  "analysis": {
+    "property_details": {
+      "title": "789 Oak St, Rivertown, CA 90210 | ExampleSource",
+      "description": "This home is located at 789 Oak St, Rivertown, CA 90210. It is a 4 bed, 3 bath single-family home listed for $420,000.",
+      "url": "https://source.example.com/listing/789oak",
+      "address": null,
+      "price": 420000,
+      "beds": 4,
+      "baths": 3,
+      "sqft": 2100,
+      "year_built": 2002,
+      "lot_size": null,
+      "property_type": "single-family",
+      "zip_code": "90210",
+      "zestimate": null,
+      "rent_zestimate": null,
+      "hoa_fee": null,
+      "source_attribution": "Source data provider",
+      "data_use": "Investment analysis only"
+    },
+    "monthly_pro_forma": {
+      "income": {
+        "gross_rental_income": 3200
+      },
+      "expenses": {
+        "mortgage_payment": 1800,
+        "property_taxes": 350,
+        "insurance": 120,
+        "hoa_fees": 50,
+        "hoa_fees_display": "N/A",
+        "maintenance": 100,
+        "vacancy": 80,
+        "property_management": 160,
+        "capex": 80,
+        "total_expenses": 2740
+      },
+      "cash_flow": {
+        "net_operating_income": 460,
+        "net_cash_flow": 460
+      }
+    },
+    "financial_analysis": {
+      "purchase_price": 420000,
+      "financing_details": {
+        "monthly_payment": 1800,
+        "principal": 336000,
+        "down_payment": 84000,
+        "annual_rate": 5.25,
+        "monthly_rate": 0.4375,
+        "total_interest": 220000,
+        "total_paid": 640000,
+        "loan_term_years": 30
+      },
+      "fair_market_rent": 3200,
+      "operating_expenses": {
+        "property_taxes": 350,
+        "homeowners_insurance": 120,
+        "hoa_fees": 50,
+        "maintenance": 100,
+        "capex": 80,
+        "vacancy": 80,
+        "property_management": 160,
+        "hoa_fees_display": "N/A"
+      },
+      "net_operating_income": {
+        "monthly": 460,
+        "annual": 5520
+      },
+      "cash_flow": {
+        "monthly": 460,
+        "annual": 5520
+      },
+      "investment_metrics": {
+        "cap_rate": 1.32,
+        "cash_on_cash_return": 6.19,
+        "total_cash_required": 95000
+      }
+    },
+    "comparable_rentals": [
+      {
+        "title": "4 Bedroom Apartments for Rent in Rivertown, CA | ExampleSource",
+        "description": "Apartments for rent in Rivertown, California have a median rental price of $3,200.",
+        "url": "https://source.example.com/rentals/4br",
+        "address": null,
+        "price": 3200,
+        "beds": 4,
+        "baths": null,
+        "sqft": null,
+        "year_built": null,
+        "lot_size": null,
+        "property_type": null,
+        "zip_code": null,
+        "zestimate": null,
+        "rent_zestimate": null,
+        "hoa_fee": null,
+        "source_attribution": "Source data provider",
+        "data_use": "Investment analysis only"
+      }
+    ]
+  },
+  "raw_analysis": "{...}",
+  "price": "$420,000",
+  "listing_price": 420000
+}
+```
+
+## Response Fields
+
+- **address** (`string`): The address of the analyzed property.
+- **analysis** (`object`): Contains the main analysis data:
+  - **property_details** (`object`): Details about the property (see fields in search response).
+  - **monthly_pro_forma** (`object`): Monthly income, expenses, and cash flow projections:
+    - **income** (`object`): 
+      - **gross_rental_income** (`number`): Estimated monthly rental income.
+    - **expenses** (`object`): 
+      - **mortgage_payment** (`number`): Monthly mortgage payment.
+      - **property_taxes** (`number`): Monthly property tax.
+      - **insurance** (`number`): Monthly insurance cost.
+      - **hoa_fees** (`number`): Monthly HOA fees.
+      - **hoa_fees_display** (`string`): Display value for HOA fees (e.g., "N/A").
+      - **maintenance** (`number`): Monthly maintenance cost.
+      - **vacancy** (`number`): Monthly vacancy allowance.
+      - **property_management** (`number`): Monthly property management fee.
+      - **capex** (`number`): Monthly capital expenditures.
+      - **total_expenses** (`number`): Total monthly expenses.
+    - **cash_flow** (`object`): 
+      - **net_operating_income** (`number`): Monthly net operating income.
+      - **net_cash_flow** (`number`): Monthly net cash flow after expenses.
+  - **financial_analysis** (`object`): Financial breakdown and investment metrics:
+    - **purchase_price** (`number`): Property purchase price.
+    - **financing_details** (`object`): 
+      - **monthly_payment** (`number`): Monthly loan payment.
+      - **principal** (`number`): Loan principal.
+      - **down_payment** (`number`): Down payment amount.
+      - **annual_rate** (`number`): Annual interest rate (percent).
+      - **monthly_rate** (`number`): Monthly interest rate (percent).
+      - **total_interest** (`number`): Total interest paid over the loan.
+      - **total_paid** (`number`): Total amount paid over the loan term.
+      - **loan_term_years** (`number`): Loan term in years.
+    - **fair_market_rent** (`number`): Estimated fair market rent.
+    - **operating_expenses** (`object`): Breakdown of operating expenses (see above).
+    - **net_operating_income** (`object`): 
+      - **monthly** (`number`): Monthly NOI.
+      - **annual** (`number`): Annual NOI.
+    - **cash_flow** (`object`): 
+      - **monthly** (`number`): Monthly cash flow.
+      - **annual** (`number`): Annual cash flow.
+    - **investment_metrics** (`object`): 
+      - **cap_rate** (`number`): Capitalization rate (percent).
+      - **cash_on_cash_return** (`number`): Cash-on-cash return (percent).
+      - **total_cash_required** (`number`): Total cash required for purchase.
+  - **comparable_rentals** (`array`): List of comparable rental properties (see fields in search response).
+- **raw_analysis** (`string`): Raw JSON string of the analysis data for debugging or auditing.
+- **price** (`string`): Formatted price string (e.g., "$665,000").
+- **listing_price** (`number`): Numeric listing price.
+
+## Notes
+
+- Fields may be `null` if the information is not available.
+- The `property_details` and `comparable_rentals` objects use the same structure as described in the search response documentation.
+- The `raw_analysis` field contains the raw JSON used to generate the analysis, useful for debugging or auditing.
+- All monetary values are in USD unless otherwise specified.

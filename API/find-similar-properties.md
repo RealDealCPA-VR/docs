@@ -1,0 +1,71 @@
+# Find Similar Properties Documentation
+
+## What is the Find Similar Properties Response?
+
+The find similar properties response is returned by the API when a user requests comparable properties for a given address. It provides a list of properties that are similar in location, size, and features to the target property, along with relevant details for each comparable.
+
+## Usefulness
+
+The find similar properties response is valuable for:
+- Real estate professionals and investors who need to analyze comparable properties for pricing, valuation, or investment decisions.
+- Application users who want to benchmark a property against others in the area.
+- Anyone seeking to understand local market trends and property values.
+
+By surfacing similar properties, this response enables more accurate market analysis, supports negotiation, and helps users make informed decisions.
+
+## Example Response
+
+```json
+{
+  "searchResult": {
+    "success": true,
+    "original_address": "22 Cedar Ln, Brookfield, TX 75001",
+    "zip_code": "75001",
+    "target_sqft": 1200,
+    "similar_properties": [
+      {
+        "address": "30 Cedar Ln, Brookfield, TX 75001",
+        "price": 355000,
+        "beds": 3,
+        "baths": 2,
+        "sqft": 1275,
+        "url": "https://source.example.com/listing/30cedar",
+        "description": "Aug 10, 2025 ... 30 Cedar Ln, Brookfield, TX 75001 is pending. This 3 bed, 2 bath, 1275 sqft single family home is listed for $355,000."
+      },
+      {
+        "address": "15 Oak Dr, Brookfield, TX 75001",
+        "price": 342000,
+        "beds": 3,
+        "baths": 2,
+        "sqft": 1190,
+        "url": "https://source.example.com/listing/15oak",
+        "description": "Jul 30, 2025 ... 15 Oak Dr, Brookfield, TX 75001 is for sale. This 3 bed, 2 bath, 1190 sqft single family home is listed for $342,000."
+      }
+    ],
+    "warning": "Found 2 similar properties"
+  }
+}
+```
+
+## Response Fields
+
+- **searchResult** (`object`): The main result object.
+  - **success** (`boolean`): Indicates if the search was successful.
+  - **original_address** (`string`): The address of the property for which comparables were requested.
+  - **zip_code** (`string`): ZIP code of the target property.
+  - **target_sqft** (`number`): Square footage of the target property.
+  - **similar_properties** (`array`): List of comparable properties, each with:
+    - **address** (`string`): Address of the similar property.
+    - **price** (`number`): Price of the similar property.
+    - **beds** (`number`): Number of bedrooms.
+    - **baths** (`number`): Number of bathrooms.
+    - **sqft** (`number`): Square footage.
+    - **url** (`string`): Obscured or generic URL for the property listing.
+    - **description** (`string`): Description of the property.
+  - **warning** (`string`): Any warning or informational message.
+
+## Notes
+
+- The similar properties are selected based on proximity, size, and other relevant features.
+- URLs and addresses in the example are randomized and sources are obscured for privacy and generalization.
+- The warning field may indicate the number of comparables found or any issues with the search.
