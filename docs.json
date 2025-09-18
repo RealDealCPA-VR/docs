@@ -43,6 +43,43 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "api/introduction",
+              "api/authentication",
+              "api/quickstart"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "pages": [
+              "api/endpoints/users",
+              "api/endpoints/properties",
+              "api/endpoints/calculations",
+              "api/endpoints/reports"
+            ]
+          },
+          {
+            "group": "Examples",
+            "pages": [
+              "api/examples/basic-usage",
+              "api/examples/advanced-scenarios"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "api/reference/errors",
+              "api/reference/rate-limits",
+              "api/reference/changelog"
+            ]
+          }
+        ]
       }
     ],
     "global": {
