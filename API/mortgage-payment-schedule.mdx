@@ -1,0 +1,29 @@
+---
+title: "Mortgage Payment Schedule API"
+description: "Generate a detailed mortgage payment schedule based on loan parameters."
+icon: "schedule"
+---
+
+# Mortgage Payment Schedule API
+
+**Endpoint:** `/api/mortgage-payment-schedule`
+
+**Description:**  
+Generate a detailed mortgage payment schedule based on loan parameters.
+
+## Request
+
+- **Method:** POST
+- **Body:**  
+  - `loanAmount` (number): The principal loan amount.
+  - `interestRate` (number): Annual interest rate (percentage).
+  - `termYears` (integer): Loan term in years.
+  - `startDate` (string, optional): Start date of the mortgage.
+
+## Response
+
+- **200 OK:** Amortization schedule with payment breakdown.
+
+---
+
+*Add further details as needed.*
