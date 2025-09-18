@@ -50,8 +50,13 @@
           {
             "group": "API Endpoints",
             "pages": [
+              "API/analyze-property",
               "API/analyze-response",
+              "API/calculate-mortgage",
               "API/find-similar-properties",
+              "API/get-current-mortgage",
+              "API/get-current-savings",
+              "API/mortgage-payment-schedule",
               "API/mortgage-rate",
               "API/savings-rate",
               "API/search-response"
