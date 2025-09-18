@@ -9,74 +9,62 @@
   },
   "favicon": "/3_xaTg90_400x400.svg",
   "navigation": {
-    "groups": [
+    "tabs": [
       {
-        "group": "Get Started",
-        "icon": "play",
-        "pages": [
-          "index",
-          "development",
-          "Realestateapp"
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "index",
+              "development",
+              "Realestateapp"
+            ]
+          },
+          {
+            "group": "Policies",
+            "pages": [
+              "Termsofservice/Termsofservice",
+              "Privacy/privacypolicy",
+              "Investmentdisclaimer/Disclaimer",
+              "Investmentdisclaimer/Commonterms"
+            ]
+          },
+          {
+            "group": "Pricing",
+            "pages": [
+              "pricing/cost"
+            ]
+          },
+          {
+            "group": "About",
+            "pages": [
+              "Credentials/credential"
+            ]
+          }
         ]
       },
       {
-        "group": "Policies",
-        "icon": "shield-check",
-        "pages": [
-          "Termsofservice/Termsofservice",
-          "Privacy/privacypolicy",
-          "Investmentdisclaimer/Disclaimer",
-          "Investmentdisclaimer/Commonterms"
-        ]
-      },
-      {
-        "group": "Pricing",
-        "icon": "dollar-sign",
-        "pages": [
-          "pricing/cost"
-        ]
-      },
-      {
-        "group": "About",
-        "icon": "info",
-        "pages": [
-          "Credentials/credential"
-        ]
-      },
-      {
-        "group": "API Getting Started",
-        "icon": "rocket",
-        "pages": [
-          "api/introduction",
-          "api/authentication",
-          "api/quickstart"
-        ]
-      },
-      {
-        "group": "API Endpoints",
-        "icon": "square-terminal",
-        "pages": [
-          "api/endpoints/users",
-          "api/endpoints/properties",
-          "api/endpoints/calculations",
-          "api/endpoints/reports"
-        ]
-      },
-      {
-        "group": "API Examples",
-        "icon": "code",
-        "pages": [
-          "api/examples/basic-usage",
-          "api/examples/advanced-scenarios"
-        ]
-      },
-      {
-        "group": "API Reference",
-        "icon": "book-open",
-        "pages": [
-          "api/reference/errors",
-          "api/reference/rate-limits",
-          "api/reference/changelog"
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "API Documentation",
+            "pages": [
+              "api-reference/introduction",
+              "api-reference/authentication",
+              "api-reference/quickstart"
+            ]
+          },
+          {
+            "group": "Endpoint Examples",
+            "pages": [
+              "api-reference/endpoint/users",
+              "api-reference/endpoint/properties",
+              "api-reference/endpoint/calculations",
+              "api-reference/endpoint/reports",
+              "api-reference/endpoint/webhook"
+            ]
+          }
         ]
       }
     ],
