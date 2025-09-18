@@ -48,21 +48,13 @@
         "tab": "API Reference",
         "groups": [
           {
-            "group": "API Documentation",
+            "group": "API Endpoints",
             "pages": [
-              "api-reference/introduction",
-              "api-reference/authentication",
-              "api-reference/quickstart"
-            ]
-          },
-          {
-            "group": "Endpoint Examples",
-            "pages": [
-              "api-reference/endpoint/users",
-              "api-reference/endpoint/properties",
-              "api-reference/endpoint/calculations",
-              "api-reference/endpoint/reports",
-              "api-reference/endpoint/webhook"
+              "API/analyze-response",
+              "API/find-similar-properties",
+              "API/mortgage-rate",
+              "API/savings-rate",
+              "API/search-response"
             ]
           }
         ]
