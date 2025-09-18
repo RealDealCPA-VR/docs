@@ -38,6 +38,21 @@ Perform comprehensive real estate investment analysis with custom mortgage param
 - **402 Payment Required:** Insufficient credits
 - **422 Validation Error:** Invalid input
 
+## How to Call This Endpoint
+
+```bash title="cURL Example"
+curl -X POST "https://api.example.com/analyze/custom-mortgage" \
+  -H "Content-Type: application/json" \
+  -H "X-API-KEY: ak_abc123.secret456" \
+  -d '{
+    "address": "123 Main St, Springfield, IL 62704",
+    "down_payment_percent": 25,
+    "annual_rate": 6.0,
+    "loan_term_years": 30,
+    "include_pmi": false
+  }'
+```
+
 ## Example Request
 
 ```http

@@ -36,6 +36,15 @@ To test this endpoint in the FastAPI docs (`/docs`), click "Authorize" and enter
 - **402 Payment Required:** Insufficient credits
 - **422 Validation Error:** Invalid input
 
+## How to Call This Endpoint
+
+```bash title="cURL Example"
+curl -X POST "https://api.example.com/analyze" \
+  -H "Content-Type: application/json" \
+  -H "X-API-KEY: ak_abc123.secret456" \
+  -d '{"address": "123 Main St, Springfield, IL 62704"}'
+```
+
 ## Example Request
 
 ```http
