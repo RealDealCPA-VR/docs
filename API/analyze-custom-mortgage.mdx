@@ -1,0 +1,71 @@
+---
+title: "Analyze With Custom Mortgage API"
+description: "Perform real estate investment analysis with custom mortgage parameters. Requires API key."
+icon: "calculate"
+---
+
+# Analyze With Custom Mortgage
+
+**Endpoint:** `POST /analyze/custom-mortgage`
+
+**Summary:**  
+Analyze With Custom Mortgage
+
+**Description:**  
+Perform comprehensive real estate investment analysis with custom mortgage parameters. This allows users to modify mortgage terms and see how it affects their investment returns.
+
+- **Security:** Requires valid API key in `X-API-KEY` header (format: ak_<key_id>.<secret>).
+- **Credits:** Charges 12 credits per analysis (10 for analysis + 2 for custom mortgage).
+- **Errors:** Returns 401 if invalid key, 402 if insufficient credits.
+
+## Request
+
+- **Method:** POST
+- **Body:**  
+  - `address` (string, required): The address to analyze.
+  - `down_payment_percent` (number, optional): Down payment percentage (default: 20).
+  - `annual_rate` (number, optional): Annual interest rate (uses current if not provided).
+  - `loan_term_years` (integer, optional): Loan term in years (default: 30).
+  - `include_pmi` (boolean, optional): Include PMI (default: true).
+
+- **Headers:**
+  - `X-API-KEY` (string, required): Your API key.
+
+## Responses
+
+- **200 OK:** Successful Response (JSON, see `AnalysisResponse` schema)
+- **401 Unauthorized:** Invalid API key
+- **402 Payment Required:** Insufficient credits
+- **422 Validation Error:** Invalid input
+
+## Example Request
+
+```http
+POST /analyze/custom-mortgage HTTP/1.1
+Host: api.example.com
+Content-Type: application/json
+X-API-KEY: ak_abc123.secret456
+
+{
+  "address": "123 Main St, Springfield, IL 62704",
+  "down_payment_percent": 25,
+  "annual_rate": 6.0,
+  "loan_term_years": 30,
+  "include_pmi": false
+}
+```
+
+## Example Response
+
+```json
+{
+  "address": "123 Main St, Springfield, IL 62704",
+  "analysis": { /* ... analysis data ... */ },
+  "raw_analysis": "{...}",
+  "price": "$250,000",
+  "listing_price": 250000
+}
+```
+
+---
+*See the [AnalysisResponse schema](./analyze-response.mdx) for full response details.*

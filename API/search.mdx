@@ -1,0 +1,71 @@
+---
+title: "Search Address API"
+description: "Search for a property address using a Google-first strategy and retrieve property data. Requires API key."
+icon: "search"
+---
+
+# Search Address
+
+**Endpoint:** `GET /search`
+
+**Summary:**  
+Search Address
+
+**Description:**  
+Uses a Google-first strategy to find and scrape property data.
+
+- **Security:** Requires valid API key in `X-API-KEY` header (format: ak_<key_id>.<secret>).
+- **Credits:** Charges 5 credits per search.
+- **Errors:** Returns 401 if invalid key, 402 if insufficient credits.
+
+To test this endpoint in the FastAPI docs (`/docs`), click "Authorize" and enter your API key.
+
+## Request
+
+- **Method:** GET
+- **Query Parameters:**
+  - `address` (string, required): Full address to search.
+
+- **Headers:**
+  - `X-API-KEY` (string, required): Your API key.
+
+## Responses
+
+- **200 OK:** Successful Response (JSON, see `SearchResponse` schema)
+- **401 Unauthorized:** Invalid API key
+- **402 Payment Required:** Insufficient credits
+- **422 Validation Error:** Invalid input
+
+## Example Request
+
+```http
+GET /search?address=123+Main+St,+Springfield,+IL HTTP/1.1
+Host: api.example.com
+X-API-KEY: ak_abc123.secret456
+```
+
+## Example Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "title": "123 Main St, Springfield, IL 62704 | ExampleSource",
+      "description": "This home is located at 123 Main St, Springfield, IL 62704. This property is off market.",
+      "url": "https://source.example.com/listing/12345",
+      "address": "123 Main St, Springfield, IL 62704",
+      "price": 250000,
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1800,
+      "year_built": 1995,
+      "property_type": "single-family"
+    }
+  ],
+  "warning": null
+}
+```
+
+---
+*See the [SearchResponse schema](./search-response.mdx) for full response details.*

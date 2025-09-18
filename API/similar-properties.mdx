@@ -1,0 +1,69 @@
+---
+title: "Find Similar Properties API"
+description: "Find 3 other properties with similar square footage, with robust de-duplication. Requires API key."
+icon: "compare"
+---
+
+# Find Similar Properties
+
+**Endpoint:** `GET /similar-properties`
+
+**Summary:**  
+Find Similar Properties
+
+**Description:**  
+Find 3 other properties with similar square footage, with robust de-duplication.
+
+- **Security:** Requires valid API key in `X-API-KEY` header (format: ak_<key_id>.<secret>).
+- **Credits:** Charges 3 credits per request.
+- **Errors:** Returns 401 if invalid key, 402 if insufficient credits.
+
+## Request
+
+- **Method:** GET
+- **Query Parameters:**
+  - `address` (string, required): Full address to find similar properties for.
+
+- **Headers:**
+  - `X-API-KEY` (string, required): Your API key.
+
+## Responses
+
+- **200 OK:** Successful Response (JSON, see `SimilarPropertiesResponse` schema)
+- **401 Unauthorized:** Invalid API key
+- **402 Payment Required:** Insufficient credits
+- **422 Validation Error:** Invalid input
+
+## Example Request
+
+```http
+GET /similar-properties?address=123+Main+St,+Springfield,+IL HTTP/1.1
+Host: api.example.com
+X-API-KEY: ak_abc123.secret456
+```
+
+## Example Response
+
+```json
+{
+  "success": true,
+  "original_address": "123 Main St, Springfield, IL 62704",
+  "zip_code": "62704",
+  "target_sqft": 1800,
+  "similar_properties": [
+    {
+      "address": "125 Main St, Springfield, IL 62704",
+      "price": 255000,
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1820,
+      "url": "https://source.example.com/listing/125main",
+      "description": "Similar property nearby."
+    }
+  ],
+  "warning": null
+}
+```
+
+---
+*See the [SimilarPropertiesResponse schema](./find-similar-properties.mdx) for full response details.*

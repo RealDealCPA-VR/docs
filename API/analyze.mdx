@@ -1,0 +1,65 @@
+---
+title: "Analyze Address API"
+description: "Perform a comprehensive real estate investment analysis for a property. Requires API key."
+icon: "analytics"
+---
+
+# Analyze Address
+
+**Endpoint:** `POST /analyze`
+
+**Summary:**  
+Analyze Address
+
+**Description:**  
+Performs a comprehensive real estate investment analysis.
+
+- **Security:** Requires valid API key in `X-API-KEY` header (format: ak_<key_id>.<secret>).
+- **Credits:** Charges 10 credits per analysis.
+- **Errors:** Returns 401 if invalid key, 402 if insufficient credits.
+
+To test this endpoint in the FastAPI docs (`/docs`), click "Authorize" and enter your API key.
+
+## Request
+
+- **Method:** POST
+- **Body:**  
+  - `address` (string, required): The address to analyze.
+
+- **Headers:**
+  - `X-API-KEY` (string, required): Your API key.
+
+## Responses
+
+- **200 OK:** Successful Response (JSON, see `AnalysisResponse` schema)
+- **401 Unauthorized:** Invalid API key
+- **402 Payment Required:** Insufficient credits
+- **422 Validation Error:** Invalid input
+
+## Example Request
+
+```http
+POST /analyze HTTP/1.1
+Host: api.example.com
+Content-Type: application/json
+X-API-KEY: ak_abc123.secret456
+
+{
+  "address": "123 Main St, Springfield, IL 62704"
+}
+```
+
+## Example Response
+
+```json
+{
+  "address": "123 Main St, Springfield, IL 62704",
+  "analysis": { /* ... analysis data ... */ },
+  "raw_analysis": "{...}",
+  "price": "$250,000",
+  "listing_price": 250000
+}
+```
+
+---
+*See the [AnalysisResponse schema](./analyze-response.mdx) for full response details.*
