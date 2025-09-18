@@ -11,10 +11,18 @@ icon: "search"
 **Description:**  
 Analyze a property to provide insights, valuation, and investment recommendations.
 
+## How to Call This Endpoint
+
+```bash
+curl -X POST "https://api.example.com/api/analyze-property" \
+  -H "Content-Type: application/json" \
+  -d '{"address": "123 Main St, Springfield, IL 62704", "details": {}}'
+```
+
 ## Request
 
 - **Method:** POST
-- **Body:**  
+- **Body:**
   - `address` (string): The address of the property.
   - `details` (object): Additional property details.
 

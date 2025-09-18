@@ -8,10 +8,7 @@ icon: "calculate"
 
 **Endpoint:** `POST /analyze/custom-mortgage`
 
-**Summary:**  
-Analyze With Custom Mortgage
-
-**Description:**  
+**Description:**
 Perform comprehensive real estate investment analysis with custom mortgage parameters. This allows users to modify mortgage terms and see how it affects their investment returns.
 
 - **Security:** Requires valid API key in `X-API-KEY` header (format: ak_<key_id>.<secret>).
@@ -21,7 +18,7 @@ Perform comprehensive real estate investment analysis with custom mortgage param
 ## Request
 
 - **Method:** POST
-- **Body:**  
+- **Body:**
   - `address` (string, required): The address to analyze.
   - `down_payment_percent` (number, optional): Down payment percentage (default: 20).
   - `annual_rate` (number, optional): Annual interest rate (uses current if not provided).
@@ -75,8 +72,8 @@ X-API-KEY: ak_abc123.secret456
 ```json
 {
   "address": "123 Main St, Springfield, IL 62704",
-  "analysis": { /* ... analysis data ... */ },
-  "raw_analysis": "{...}",
+  "analysis": {},
+  "raw_analysis": "",
   "price": "$250,000",
   "listing_price": 250000
 }

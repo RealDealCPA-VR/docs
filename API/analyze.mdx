@@ -8,10 +8,7 @@ icon: "analytics"
 
 **Endpoint:** `POST /analyze`
 
-**Summary:**  
-Analyze Address
-
-**Description:**  
+**Description:**
 Performs a comprehensive real estate investment analysis.
 
 - **Security:** Requires valid API key in `X-API-KEY` header (format: ak_<key_id>.<secret>).
@@ -23,7 +20,7 @@ To test this endpoint in the FastAPI docs (`/docs`), click "Authorize" and enter
 ## Request
 
 - **Method:** POST
-- **Body:**  
+- **Body:**
   - `address` (string, required): The address to analyze.
 
 - **Headers:**
@@ -63,8 +60,8 @@ X-API-KEY: ak_abc123.secret456
 ```json
 {
   "address": "123 Main St, Springfield, IL 62704",
-  "analysis": { /* ... analysis data ... */ },
-  "raw_analysis": "{...}",
+  "analysis": {},
+  "raw_analysis": "",
   "price": "$250,000",
   "listing_price": 250000
 }
