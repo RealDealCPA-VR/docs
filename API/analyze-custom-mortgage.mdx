@@ -4,14 +4,12 @@ description: "Perform real estate investment analysis with custom mortgage param
 icon: "calculate"
 ---
 
-# Analyze With Custom Mortgage
-
 **Endpoint:** `POST /analyze/custom-mortgage`
 
 **Description:**
 Perform comprehensive real estate investment analysis with custom mortgage parameters. This allows users to modify mortgage terms and see how it affects their investment returns.
 
-- **Security:** Requires valid API key in `X-API-KEY` header (format: ak_<key_id>.<secret>).
+- **Security:** Requires valid API key in `X-API-KEY` header (format: ak_<key_id>.secret).
 - **Credits:** Charges 12 credits per analysis (10 for analysis + 2 for custom mortgage).
 - **Errors:** Returns 401 if invalid key, 402 if insufficient credits.
 
